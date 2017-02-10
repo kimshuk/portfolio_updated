@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<title>Andrew Kim</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css">
+
+
+<link rel="stylesheet" href="assets/gridloading/css/component.css">
+<link rel="stylesheet" href="assets/animate.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/progress.css">
+<script>
+    function mail_handler() {
+        var email_info = {
+            name: $('#name').val(),
+            email: $('#email').val(),
+            message: $('#message').val()
+        };
+
+        $.ajax({
+            url: 'mail_handler/mail_handler.php',
+            method: 'post',
+            dataType: 'json',
+            data: email_info,
+            beforeSend: function () {
+                $('#response_show').addClass('progress');
+            },
+            success: function (response) {
+                $('#response_show').removeClass('progress');
+                if (response.success) {
+                    $('#response_show').html(response.message);
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#message').val('');
+                } else {
+                    $('#response_show').html("<p style='color: red'>" + response.message + "</p>");
+                }
+            },
+            error: function (response) {
+                $('#response_show').removeClass('progress');
+                console.log("response error");
+            }
+        });
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+
+    <!-- header -->
+    <div id="top" class="header-bg fullpage">
+        <div class="header fullpage">
+            <div class="container">
+                <div class="absolute-center">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h1 class="info animated fadeInDown"><a href="https://www.linkedin.com/in/andrew-kim-72b5598b" class="logo" target="_blank">Hi<br>I am <u style="font-weight:bold">Andrew Kim</u></a><br><b>I do Web App <span>Design &amp; Development</span><br></b></h1>
+                            <a href="#works" class="btn scroll animated bounceInUp">View My Works</a><a href="#contact" class="btn scroll animated bounceInDown">Contact</a>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <div class="connect-icon">
+                                <div class="prof-links clearfix animated bounceInUp">
+                                    <a href="https://www.linkedin.com/in/andrew-kim-72b5598b" target="_blank"><img alt="sns" src="images/icon/social-linkedin-circular-button.png" height="32"></a>
+                                    <a href="https://github.com/kimshuk"><img src="images/icon/github.png" alt="sns" height="32"></a>
+                                </div>
+
+                                <div class="social  clearfix  animated bounceInDown">
+                                    <a href="https://twitter.com/andrewjkim29" target="_blank"><img alt="portfolio" src="images/icon/twitter-circular-button.png" width="32"></a>
+                                    <a href="mailto:jeesoo2002@gmail.com"><img src="images/icon/arroba.png" alt="sns" height="32"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
+
+
+    <div class="content-body">
+
+
+
+        <!-- works -->
+        <div id="works" class="portfolio spacer">
+            <div class="container">
+                <h2 class="center">Works</h2>
+
+                <ul class="grid effect-2" id="grid">
+                    <li><img alt="portfolio" src="images/projects/finance_web.PNG" height="200px">
+                        <div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://smartbizfund.com/" target="_blank"><i class="fa fa-link"></i> Demo</a></span></div>
+                    </li>
+                    <li><img alt="portfolio" src="images/projects/moviesearch_img.png" height="200px">
+                        <div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://jeesookim.com/moviesearch/" target="_blank"><i class="fa fa-link"></i> Demo</a><a href="https://github.com/kimshuk/moviesearch" target="_blank"><i class="fa fa-link"></i> Github</a></span></div>
+                    </li>
+                    <li>
+                        <img alt="portfolio" src="images/projects/match_img.png" height="200px">
+                        <div class="overlay animated fadeIn "><span class="animated fadeInDown "><a href="http://jeesookim.com/app_memory_match/ " target="_blank "><i class="fa fa-link "></i> Demo</a><a href="https://github.com/kimshuk/app_memory_match " target="_blank "><i class="fa fa-link "></i> Github</a></span></div>
+                    </li>
+                    <li><img alt="portfolio " src="images/projects/sgt_img.png" height="200px">
+                        <div class="overlay animated fadeIn "><span class="animated fadeInUp "><a href="http://jeesookim.com/app_sgt/ " target="_blank "><i class="fa fa-link "></i> Demo</a><a href="https://github.com/kimshuk/app_sgt " target="_blank "><i class="fa fa-github "></i> Github</a></span></div>
+                    </li>
+                    <li><img alt="portfolio " src="images/projects/calc_img.png " height="200px">
+                        <div class="overlay animated fadeIn "><span class="animated bounceIn "><a href="http://jeesookim.com/app_calculator/ " target="_blank "><i class="fa fa-link "></i> Demo</a><a href="https://github.com/kimshuk/app_calculator " target="_blank "><i class="fa fa-link "></i> Github</a></span></div>
+                    </li>
+                    <li><img alt="portfolio " src="images/projects/tictactoe_img.png " height="200px">
+                        <div class="overlay animated fadeIn "><span class="animated fadeInDown "><a href="http://jeesookim.com/app_tictactoe/ " target="_blank "><i class="fa fa-link "></i> Demo</a><a href="https://github.com/kimshuk/app_tictactoe " target="_blank "><i class="fa fa-link "></i> Github</a></span></div>
+                    </li>
+                    <li><img alt="portfolio " src="images/projects/freshstart_img.png " height="200px">
+                        <div class="overlay animated fadeIn "><span class="animated bounceIn "><a href="http://jeesookim.com/app_freshstart/ " target="_blank "><i class="fa fa-link "></i> Demo</a><a href="https://github.com/kimshuk/app_freshstart " target="_blank "><i class="fa fa-link "></i> Github</a></span></div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- works -->
+
+
+    </div>
+
+
+    <!-- contact -->
+    <div id="contact " class="footer center spacer ">
+
+
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-offset-3 col-sm-6 contact-form ">
+                    <h3>Contact Me</h3>
+                    <p>Let me know if you have any question!</p>
+                    <div id="response_show "></div>
+                    <form method="post" action="mail_handler/mail_handler.php">
+                        <input type="text " name="name" id="name" class="form-control " placeholder="Name ">
+                        <input type="email " name="email" id="email" class="form-control " placeholder="Email ">
+                        <textarea name="message " id="message" class="form-control " placeholder="Message " rows="3"></textarea>
+                        <input type="button " id="email_sender " class="btn btn-primary btn-lg " value="Send " onclick="mail_handler()">
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- contact -->
+
+
+    <a href="#top " class="toTop scroll "><i class="fa fa-angle-up "></i></a>
+
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.js "></script>
+
+
+    <!-- gridloading script -->
+    <script src="assets/gridloading/js/modernizr.custom.js "></script>
+    <script src="assets/gridloading/js/masonry.pkgd.min.js "></script>
+    <script src="assets/gridloading/js/imagesloaded.js "></script>
+    <script src="assets/gridloading/js/classie.js "></script>
+    <script src="assets/gridloading/js/AnimOnScroll.js "></script>
+    <!-- gridloading script -->
+
+
+    <script src="assets/scripts.js "></script>
+
+
+</body>
+
+</html>
